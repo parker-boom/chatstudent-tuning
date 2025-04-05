@@ -53,7 +53,7 @@ export default function Step3() {
           {/* Prompt Bubble */}
           <div className="pb-8">
             <div className="pb-2">
-              <img src="/images/onboarding/step3.png" alt="Step 3" className="w-full h-[150px] object-contain" />
+              <img src="/images/onboarding/step3.png" alt="Step 3" className="w-full h-[150px] object-contain" loading="eager"/>
             </div>
             <div className="bg-bubble inline-block px-6 py-5 rounded-xl shadow text-main text-center space-y-2">
               <div className="text-xl font-bold">Now let's get specific.</div>

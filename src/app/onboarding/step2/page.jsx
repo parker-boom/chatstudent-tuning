@@ -62,7 +62,7 @@ export default function Step2() {
 
           <div className="pb-10">
             <div className="pb-2">
-              <img src="/images/onboarding/step2.png" alt="Step 2" className="w-full h-[150px] object-contain" />
+              <img src="/images/onboarding/step2.png" alt="Step 2" className="w-full h-[150px] object-contain" loading="eager" />
             </div>
 
             <div className="bg-bubble inline-block px-6 py-5 rounded-xl shadow text-main space-y-2">

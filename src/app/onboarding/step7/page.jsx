@@ -52,7 +52,7 @@ export default function Step7() {
           {/* Instructions with image */}
           <div className="flex items-start justify-center gap-4">
             <div className="bg-bubble px-3 py-3 rounded-xl shadow text-left max-w-xl">
-              <img src="/images/onboarding/step7.png" alt="Step 1" className="h-[138px] object-contain" />
+              <img src="/images/onboarding/step7.png" alt="Step 1" className="h-[138px] object-contain" loading="eager" />
             </div>
 
             <div className="bg-bubble px-6 py-5 rounded-xl shadow text-left space-y-2 max-w-xl">

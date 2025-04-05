@@ -58,6 +58,17 @@ export default function Step5() {
     previewText += ` Also remember this about who I am!`;
   }
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <>
       <div className="flex justify-center w-full px-6 pb-20">

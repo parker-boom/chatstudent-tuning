@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ChatInputBar from '@/components/ChatInputBar';
 import { ClipboardCheck, ClipboardCopy } from 'lucide-react';
 import { useGenerateCustomInstructions } from '@/hooks/useGenerateCustomInstructions';
@@ -21,6 +21,17 @@ export default function Step7() {
   const handleSubmit = () => {
     router.push('/onboarding/step8');
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>

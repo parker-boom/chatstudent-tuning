@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { usePersistentState } from '@/hooks/usePersistentState';
 import { useIsHydrated } from '@/hooks/useIsHydrated';
@@ -25,6 +26,17 @@ export default function Step1() {
     router.push('/onboarding/step2');
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter' && isValid) {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isValid]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -38,7 +50,7 @@ export default function Step1() {
           <div className="flex flex-col items-center">
             {/* Image Bubble */}
             <div className="pb-2">
-              <img src="/images/onboarding/step1.png" alt="Step 1" className="w-full h-[150px] object-contain" />
+              <img src="/images/onboarding/step1.png" alt="Step 1" className="w-full h-[150px] object-contain" loading="eager" />
             </div>
             {/* Text Bubble */}
             <div className="bg-bubble px-6 py-4 rounded-xl shadow text-xl font-bold text-main text-center">

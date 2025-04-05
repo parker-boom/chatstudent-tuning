@@ -44,6 +44,17 @@ export default function Step2() {
     ? `I'm a ${gradeLabels[grade]}.`
     : `I'm a ${gradeLabels[grade]} student.`;
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <>
       <div className="flex justify-center w-full px-6 pb-28">

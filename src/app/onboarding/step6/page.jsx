@@ -3,6 +3,7 @@ import PreferenceToggle from '@/components/PreferenceToggle';
 import PreferenceSlider from '@/components/PreferenceSlider';
 import { usePersistentState } from '@/hooks/usePersistentState';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react'
 import ChatInputBar from '@/components/ChatInputBar';
 
 export default function Step6() {
@@ -12,6 +13,17 @@ export default function Step6() {
   const handleSubmit = () => {
     router.push('/onboarding/step7');
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="relative w-full px-6 pb-24">

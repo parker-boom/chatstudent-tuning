@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react'
 import { usePersistentState } from '@/hooks/usePersistentState';
 import { useIsHydrated } from '@/hooks/useIsHydrated';
 import ChatInputBar from '@/components/ChatInputBar';
@@ -31,6 +32,17 @@ export default function Step3() {
     (isCollegeOrAbove && studyFocus.trim()
       ? ` and I study ${studyFocus.trim()}.`
       : '.');
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>

@@ -1,6 +1,6 @@
 'use client';
 import { usePersistentState } from '@/hooks/usePersistentState';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ChatInputBar from '@/components/ChatInputBar';
 import { Plus } from 'lucide-react';
@@ -80,6 +80,17 @@ export default function Step4() {
     classes.length === 0
       ? "I don't want to specify my classes."
       : `Here are the ${classes.length} classes I’m in.`;
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <>

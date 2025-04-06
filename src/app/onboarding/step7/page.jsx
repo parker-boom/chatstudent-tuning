@@ -28,44 +28,52 @@ export default function Step7() {
         handleSubmit();
       }
     };
-  
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
     <>
-      <div className="flex justify-center w-full px-6 pb-20">
-        <div className="w-full max-w-3.5xl space-y-6 text-center">
+      <div className="flex justify-center w-full px-4 pb-32">
+        <div className="w-full max-w-5xl space-y-6 text-center">
           {/* Title */}
           <div className="pb-6">
             <div className="bg-bubble inline-block px-6 py-5 rounded-xl shadow">
-              <div className="text-main text-xl font-bold">
-                All done, let's update!
-              </div>
-              <div className="text-md font-semibold text-sub">
-                Please follow the instructions below.
-              </div>
+              <div className="text-main text-xl font-bold">All done, let's update!</div>
+              <div className="text-md font-semibold text-sub">Please follow the instructions below.</div>
             </div>
           </div>
 
-          {/* Instructions with image */}
-          <div className="flex items-start justify-center gap-4">
-            <div className="bg-bubble px-3 py-3 rounded-xl shadow text-left max-w-xl">
-              <img src="/images/onboarding/step7.png" alt="Step 1" className="h-[138px] object-contain" loading="eager" />
+          {/* Instructions */}
+          <div className="flex flex-col sm:flex-row items-start justify-center gap-4">
+            {/* Image (hidden on mobile) */}
+            <div className="hidden sm:block bg-bubble px-3 py-3 rounded-xl shadow text-left max-w-sm">
+              <img
+                src="/images/onboarding/step7.png"
+                alt="Step 1"
+                className="h-[138px] object-contain"
+                loading="eager"
+              />
             </div>
 
-            <div className="bg-bubble px-6 py-5 rounded-xl shadow text-left space-y-2 max-w-xl">
+            {/* Instructions */}
+            <div className="bg-bubble px-6 py-5 rounded-xl shadow text-left space-y-2 w-full sm:max-w-xl">
               <div className="text-main text-lg font-bold">How to update your ChatGPT's personality:</div>
-              <ol className="text-sub text-md list-decimal list-inside space-y-1 pt-1">
+              <ol className="text-sub text-md list-decimal list-inside space-y-1 pt-1 sm:block hidden">
                 <li>Click your profile picture in the top-right corner.</li>
                 <li>Click <span className="text-main font-medium">"Customize ChatGPT"</span>.</li>
                 <li>Copy & paste the following answers into the matching boxes.</li>
               </ol>
+              <ol className="text-sub text-md list-decimal list-inside space-y-1 pt-1 sm:hidden block">
+                <li>Open settings in the mobile app.</li>
+                <li>Click <span className="text-main font-medium">"Personalization" then "Customize ChatGPT"</span>.</li>
+                <li>Paste in the following text.</li>
+              </ol>
             </div>
           </div>
 
-          {/* Editable columns */}
+          {/* Editable Text Columns */}
           <div className="bg-bubble rounded-xl shadow-lg p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left w-full max-w-4xl mx-auto">
             {/* Column 1 */}
             <div className="space-y-2 max-h-60 overflow-y-auto scrollbar-hide">

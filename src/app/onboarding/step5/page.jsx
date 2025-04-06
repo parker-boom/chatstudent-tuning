@@ -71,10 +71,11 @@ export default function Step5() {
 
   return (
     <>
-      <div className="flex justify-center w-full px-6 pb-20">
+      <div className="flex justify-center w-full px-6 pb-32">
         <div className="w-full max-w-xl space-y-6 text-center">
 
-          <div className="pb-8">
+
+          <div className="pb-6">
 
             <div className="pb-2">
               <img src="/images/onboarding/step5.png" alt="Step 5" className="w-full h-[150px] object-contain" loading="eager"/>
@@ -88,7 +89,7 @@ export default function Step5() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
             <div className="space-y-1">
               <h3 className="text-md text-sub font-bold">Activities & Talents</h3>
               <EditableList

@@ -36,6 +36,10 @@ const icons = [
 export default function ProgressBar() {
   const pathname = usePathname();
   const router = useRouter();
+
+  // Hide if not on a step route
+  if (!pathname.includes('/step')) return null;
+
   const currentIndex = steps.findIndex((step) => pathname.startsWith(step));
 
   return (
@@ -57,7 +61,7 @@ export default function ProgressBar() {
                 } group-hover:opacity-80`}
               />
               {isActive && (
-                <div className="absolute top-[110%] left-1/2 transform -translate-x-1/2 mt-1">
+                <div className="absolute top-[110%] left-1/2 transform -translate-x-1/2 mt-1 drop-shadow-[0_1px_4px_rgba(255,255,255,0.4)]">
                   <Icon size={18} className="text-button" />
                 </div>
               )}

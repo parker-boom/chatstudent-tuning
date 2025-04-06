@@ -16,14 +16,14 @@ export default function PreferenceToggle({ label, sublabel, storageKey }) {
   };
 
   return (
-    <div className="flex justify-between items-center bg-background p-3 rounded-lg shadow">
-      <div>
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 bg-background p-3 rounded-lg shadow">
+      <div className="flex-grow">
         <div className="text-main font-medium">{label}</div>
         {sublabel && <div className="text-sub text-sm">{sublabel}</div>}
       </div>
       <button
         onClick={toggle}
-        className={`w-12 h-6 rounded-full transition ${
+        className={`w-12 h-6 rounded-full transition shrink-0 ${
           value ? 'bg-button' : 'bg-icon'
         }`}
       >

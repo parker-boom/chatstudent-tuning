@@ -91,7 +91,7 @@ export default function EditableList({ storageKey, placeholderOptions = [], maxI
                   value={item.text}
                   onChange={(e) => handleTextChange(item.id, e.target.value)}
                   placeholder={item.placeholder}
-                  className="flex-grow bg-background rounded-lg px-3 py-2 text-main placeholder-sub placeholder-opacity-40 text-sm focus:outline-none"
+                  className="w-full min-w-0 flex-grow bg-background rounded-lg px-3 py-2 text-main placeholder-sub placeholder-opacity-40 text-sm focus:outline-none"
                 />
                 {!isEmpty && (
                   <button

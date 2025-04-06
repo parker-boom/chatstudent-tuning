@@ -120,7 +120,8 @@ export function useGenerateCustomInstructions() {
     ].map(line => `- ${line}`);
       
 
-    const avoidLine = avoid ? `- Avoid the following: ${avoid}` : '';
+    const avoidLine = avoid.trim() ? `- Avoid the following: ${avoid.trim()}` : '';
+
 
     const finalNudge = 'Across all interactions, prioritize coherence and natural flow. Stay context-aware and subtly reinforce ' + name + '\'s growth. Always aim for thoughtful depth and clarity without overwhelming—your goal is impactful collaboration.';
 
@@ -168,8 +169,8 @@ export function useGenerateCustomInstructions() {
     }
 
     const personalityLine = personalityNote.trim()
-    ? `\nNOTE: ${personalityNote.trim()}`
-    : '';
+  ? `\nNOTE: ${personalityNote.trim()}`
+  : '';
 
     const outroLine = `\nUse this information to enhance personalization. Interact naturally and authentically—like a friend who genuinely knows them—with humility and real connection.`;
 
